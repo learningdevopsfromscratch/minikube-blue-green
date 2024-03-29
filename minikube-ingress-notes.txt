@@ -1,1 +1,5 @@
+# Minikube Tunnel
 https://github.com/kubernetes/minikube/issues/13510#issuecomment-1130152467
+
+# Local Docker Registry
+https://minikube.sigs.k8s.io/docs/handbook/pushing/#1-pushing-directly-to-the-in-cluster-docker-daemon-docker-env

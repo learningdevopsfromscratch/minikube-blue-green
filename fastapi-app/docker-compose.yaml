@@ -1,0 +1,17 @@
+services:
+  app-blue:
+    container_name: blue
+    build: .
+    ports:
+      - 8000:8000
+    environment:
+      - COLOR=blue
+
+  app-green:
+    container_name: green
+    build: .
+    ports:
+      - 8001:8000
+    environment:
+      - COLOR=green
+  

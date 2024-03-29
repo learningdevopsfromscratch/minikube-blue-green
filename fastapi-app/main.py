@@ -24,7 +24,7 @@ html_content = f"""
 </head>
 <body>
     <h1>Hello, World!</h1>
-    <p>This is a FastAPI application rendering HTML with a blue background.</p>
+    <p>This is a FastAPI application rendering HTML with a {color} background.</p>
 </body>
 </html>
 """
