@@ -4,15 +4,17 @@
 
 replicaCount: 1
 
+color: blue
+
 image:
-  repository: ghcr.io/learningdevopsfromscratch/minikube-blue-green
+  repository: davidbour/minikube-blue-green
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: fd81f536d9858f141d920e311a38702cdf7cfaa2
+  tag: latest
 
 imagePullSecrets: []
 nameOverride: ""
-fullnameOverride: ""
+fullnameOverride: blue
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -44,7 +46,7 @@ service:
   port: 80
 
 ingress:
-  enabled: true
+  enabled: false
   className: ""
   annotations: {}
     # kubernetes.io/ingress.class: nginx
