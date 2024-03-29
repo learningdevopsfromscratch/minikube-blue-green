@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: ghcr.io/learningdevopsfromscratch/minikube-blue-green
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: fd81f536d9858f141d920e311a38702cdf7cfaa2
 
 imagePullSecrets: []
 nameOverride: ""
