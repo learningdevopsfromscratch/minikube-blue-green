@@ -3,6 +3,18 @@ helm:
 	helm upgrade --install --set color=blue --set fullnameOverride=blue blue ./blue-green && \
 	helm upgrade --install --set color=green --set fullnameOverride=green green ./blue-green
 
+helm-ns:
+	helm upgrade --install \
+				 --create-namespace \
+				 --namespace blue-deployment \
+				 --set color=blue \
+				 --set fullnameOverride=blue blue ./blue-green
+	helm upgrade --install \
+				 --create-namespace \
+				 --namespace green-deployment \
+				 --set color=green \
+				 --set fullnameOverride=green green ./blue-green
+
 # Switch ingress to point to the blue service in the same namespace
 blue:
 	./blue.sh
@@ -16,5 +28,8 @@ build-and-push:
 	docker push davidbour/minikube-blue-green:latest
 
 clean:
-	helm uninstall blue && \
-	helm uninstall green
+	helm uninstall blue || true && \
+	helm uninstall green || true && \
+	kubectl delete ingress ingress-blue-green || true && \
+	helm uninstall blue --namespace blue-deployment && \
+	helm uninstall green --namespace green-deployment
